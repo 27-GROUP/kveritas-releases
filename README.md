@@ -2,6 +2,8 @@
 
 Pre-built binaries for the K-Veritas CLI and attestation server. Download the binaries for your platform and add them to your PATH.
 
+Latest binaries: simplified `init` (no account token) and compute-cost attestation via the `KVERITAS_MODEL` and `KVERITAS_WORKLOAD` directives.
+
 ## CLI Downloads
 
 | Platform | Architecture | Binary | Size |
