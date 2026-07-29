@@ -91,7 +91,7 @@ kveritas verify report.pdf
 
 K-Veritas is a tamper-evident verification protocol for ML research experiments. It cryptographically binds published results to the exact code, hardware, and time that produced them. Single static binary, zero runtime dependencies. Works with any language.
 
-**Web verifier:** [kveritas-web.vercel.app](https://kveritas-web.vercel.app)
+**Web verifier:** [kveritas.org](https://kveritas.org)
 
 ## License
 
