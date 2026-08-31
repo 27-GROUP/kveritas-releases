@@ -97,4 +97,4 @@ K-Veritas is a cryptographic verification protocol for computational experiments
 
 The CLI is **Apache-2.0**; the attestation server is **AGPL-3.0**. Full license texts are in the [kveritas-go](https://github.com/27-GROUP/kveritas-go) repository.
 
-"K-Veritas" and its logo are trademarks. No rights to use the name or logo to imply official certification.
+"K-Veritas" is a trademark and cannot be used in any way that implies official certification.
