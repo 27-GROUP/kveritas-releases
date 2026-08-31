@@ -2,7 +2,7 @@
 
 Pre-built binaries for the K-Veritas CLI and attestation server. Download the binaries for your platform and add them to your PATH.
 
-Latest binaries: simplified `init` (no account token) and compute-cost attestation via the `KVERITAS_MODEL` and `KVERITAS_WORKLOAD` directives.
+Latest binaries: origin-anchored verification (VERIFIED vs SELF-ATTESTED), a hash-chained ledger, and a compute-cost wall-clock check.
 
 ## CLI Downloads
 
@@ -95,4 +95,6 @@ K-Veritas is a cryptographic verification protocol for computational experiments
 
 ## License
 
-MIT
+The CLI is **Apache-2.0**; the attestation server is **AGPL-3.0**. Full license texts are in the [kveritas-go](https://github.com/27-GROUP/kveritas-go) repository.
+
+"K-Veritas" and its logo are trademarks. No rights to use the name or logo to imply official certification.
