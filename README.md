@@ -2,6 +2,8 @@
 
 Pre-built binaries for the K-Veritas CLI and attestation server. Download the binaries for your platform and add them to your PATH.
 
+K-Veritas is the reference implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
+
 Latest binaries: origin-anchored verification (VERIFIED vs SELF-ATTESTED), a hash-chained ledger, and a compute-cost wall-clock check.
 
 ## CLI Downloads
@@ -98,3 +100,17 @@ K-Veritas is a cryptographic verification protocol for computational experiments
 The CLI is **Apache-2.0**; the attestation server is **AGPL-3.0**. Full license texts are in the [kveritas-go](https://github.com/27-GROUP/kveritas-go) repository.
 
 "K-Veritas" is a trademark and cannot be used in any way that implies official certification.
+
+## Citation
+
+```bibtex
+@misc{keita2026computerscienceconferencesrequire,
+      title={Computer Science Conferences Should Require Nonrepudiable Experimental Results},
+      author={Mamadou K. Keita and Christopher Homan},
+      year={2026},
+      eprint={2605.08586},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2605.08586},
+}
+```
