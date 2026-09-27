@@ -2,6 +2,10 @@
 
 Pre-built binaries for the K-Veritas CLI and attestation server. Download the binaries for your platform and add them to your PATH.
 
+**What it proves.** These numbers came from this code, at this time, unchanged since. Not that the experiment is correct: that stays with the reviewer.
+
+**Faking it.** Several independent checks, and everything run is sealed, an attempt to cheat included. A careful look at the artifact exposes it, and it cannot be denied.
+
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
 Latest binaries: origin-anchored verification (VERIFIED vs SELF-ATTESTED), a hash-chained ledger, and a compute-cost wall-clock check.
