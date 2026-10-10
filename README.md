@@ -8,29 +8,29 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest binaries: origin-anchored verification (VERIFIED vs SELF-ATTESTED), a hash-chained ledger, and a compute-cost wall-clock check.
+Latest: paper-style reports, run anchors, no machine name in reports.
 
 ## CLI Downloads
 
 | Platform | Architecture | Binary | Size |
 |---|---|---|---|
-| Linux | x86_64 (amd64) | [`kveritas-linux-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-linux-amd64) | ~7.2 MB |
-| Linux | ARM64 | [`kveritas-linux-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-linux-arm64) | ~6.9 MB |
-| macOS | Intel (amd64) | [`kveritas-darwin-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-darwin-amd64) | ~7.3 MB |
-| macOS | Apple Silicon (arm64) | [`kveritas-darwin-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-darwin-arm64) | ~7.0 MB |
-| Windows | x86_64 (amd64) | [`kveritas-windows-amd64.exe`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-windows-amd64.exe) | ~7.4 MB |
+| Linux | x86_64 (amd64) | [`kveritas-linux-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-linux-amd64) | ~8.5 MB |
+| Linux | ARM64 | [`kveritas-linux-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-linux-arm64) | ~8.1 MB |
+| macOS | Intel (amd64) | [`kveritas-darwin-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-darwin-amd64) | ~8.6 MB |
+| macOS | Apple Silicon (arm64) | [`kveritas-darwin-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-darwin-arm64) | ~8.2 MB |
+| Windows | x86_64 (amd64) | [`kveritas-windows-amd64.exe`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-windows-amd64.exe) | ~8.7 MB |
 
 ## Attestation Server Downloads
 
-The attestation server holds the private signing key and signs experiment hashes. Required for server mode (`kveritas init --server`). Not needed for offline mode (`kveritas init --local`).
+Optional. The CLI uses the hosted K-Veritas server by default. Self-host only for on-premise signing (`kveritas init --server <url>`); its reports read SELF-ATTESTED elsewhere.
 
 | Platform | Architecture | Binary | Size |
 |---|---|---|---|
-| Linux | x86_64 (amd64) | [`kveritas-server-linux-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-linux-amd64) | ~5.0 MB |
-| Linux | ARM64 | [`kveritas-server-linux-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-linux-arm64) | ~4.8 MB |
-| macOS | Intel (amd64) | [`kveritas-server-darwin-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-darwin-amd64) | ~5.1 MB |
-| macOS | Apple Silicon (arm64) | [`kveritas-server-darwin-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-darwin-arm64) | ~4.9 MB |
-| Windows | x86_64 (amd64) | [`kveritas-server-windows-amd64.exe`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-windows-amd64.exe) | ~5.1 MB |
+| Linux | x86_64 (amd64) | [`kveritas-server-linux-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-linux-amd64) | ~5.2 MB |
+| Linux | ARM64 | [`kveritas-server-linux-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-linux-arm64) | ~5.0 MB |
+| macOS | Intel (amd64) | [`kveritas-server-darwin-amd64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-darwin-amd64) | ~5.3 MB |
+| macOS | Apple Silicon (arm64) | [`kveritas-server-darwin-arm64`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-darwin-arm64) | ~5.1 MB |
+| Windows | x86_64 (amd64) | [`kveritas-server-windows-amd64.exe`](https://github.com/27-GROUP/kveritas-releases/raw/main/bin/kveritas-server-windows-amd64.exe) | ~5.4 MB |
 
 ## Install via curl
 
@@ -86,18 +86,26 @@ kveritas-server --help
 ## Quick start
 
 ```bash
-kveritas-server --addr :7433 --keys ./keys
-kveritas init --server http://localhost:7433
+kveritas init
 kveritas run -- python train.py
 kveritas seal --output report.pdf
 kveritas verify report.pdf
+```
+
+Self-hosted server:
+
+```bash
+kveritas-server --addr :7433 --keys ./keys
+kveritas init --server http://localhost:7433
 ```
 
 ## What is K-Veritas?
 
 K-Veritas is a cryptographic verification protocol for computational experiments. It binds published results to the exact code, hardware, and time that produced them. Single static binary, zero runtime dependencies. Works with any language.
 
-**Web verifier:** [kveritas.org](https://kveritas.org)
+**Web verifier:** [kveritas.org/verify](https://kveritas.org/verify)
+
+**Published records:** [kveritas.org/records](https://kveritas.org/records)
 
 ## License
 
