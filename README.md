@@ -15,7 +15,7 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.0. Python SDK support (private result channel, attached runs, JSON output), AMD and Apple Silicon telemetry, multi-GPU power fix.
+Latest: v0.9.1. Agent sessions signed by any key other than K-Veritas read SELF-ATTESTED, notebook runs hide the home folder, JSON for record and agent seal, init --no-hooks.
 
 ## CLI Downloads
 
