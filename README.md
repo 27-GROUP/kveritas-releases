@@ -15,7 +15,16 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.8. Python SDK: plain `python train.py` runs measure every GPU, worker and node.
+Latest: v0.9.9. Results go to the file in `$KVERITAS_OUT` as short `KV` lines, from any language; `kveritas run` starts a session itself, `--seal` writes the report in one step, and `kveritas python train.py` works as a short form. Also installs with uv or pip.
+
+## Install with uv or pip
+
+```bash
+uv tool install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.9
+pip install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.9
+```
+
+Binary only, no Python package. `kveritas update` keeps it current.
 
 ## CLI Downloads
 
@@ -93,10 +102,16 @@ kveritas-server --help
 ## Quick start
 
 ```bash
-kveritas init
-kveritas run -- python train.py
-kveritas seal --output report.pdf
+kveritas run --seal -- python train.py
 kveritas verify report.pdf
+```
+
+Results, one line each, written to the file in `$KVERITAS_OUT`:
+
+```python
+kv = open(os.environ.get("KVERITAS_OUT", os.devnull), "a", buffering=1)
+print(f"KV val_acc={acc:.4f} step={epoch}", file=kv)
+print(f"KV claim test_acc={test_acc:.4f}", file=kv)
 ```
 
 Self-hosted server:
