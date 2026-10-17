@@ -15,7 +15,7 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.4. A plain `python train.py` captures every GPU and worker the script uses (multiprocessing, spawn, DataParallel, device_map), no launcher flags.
+Latest: v0.9.4. Multi-GPU readings summed across devices, JSON output, AMD and Apple Silicon telemetry.
 
 ## CLI Downloads
 
