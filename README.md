@@ -15,7 +15,7 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.6. Verify shows which source files the code audit reviewed and which it skipped.
+Latest: v0.9.7. Python SDK: plain `python train.py` runs measure every node of a multi-node job.
 
 ## CLI Downloads
 
