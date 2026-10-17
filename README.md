@@ -15,7 +15,7 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.4. Multi-GPU readings summed across devices, JSON output, AMD and Apple Silicon telemetry.
+Latest: v0.9.5. Multi-node runs: every node measured (run the same command on each node, e.g. under srun).
 
 ## CLI Downloads
 
