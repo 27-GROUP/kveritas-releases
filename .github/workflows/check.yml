@@ -40,6 +40,8 @@ jobs:
       - name: pip install from kveritas.org/wheels
         run: |
           read VERSION COMMIT < <(tr -d '\r' < bin/BUILD)
+          # kveritas.org/wheels refreshes its list every five minutes.
+          for i in $(seq 1 28); do curl -fsSL https://kveritas.org/wheels | grep -q "kveritas-$VERSION-" && break; sleep 15; done
           python -m venv venv
           PY=venv/bin/python; [ -f venv/Scripts/python.exe ] && PY=venv/Scripts/python.exe
           "$PY" -m pip install -q --no-cache-dir "kveritas==$VERSION" --find-links https://kveritas.org/wheels
