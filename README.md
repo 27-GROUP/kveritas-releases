@@ -15,13 +15,13 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.10. Every report carries a signed ledger checkpoint, and verify checks the ledger still holds it and the latest one published at [KVERITAS-SCIENCE/ledger](https://github.com/KVERITAS-SCIENCE/ledger), so a ledger cut short is caught.
+The files in `bin/` are always the latest build. `kveritas version` names the build and its commit; `bin/BUILD` records which is current.
 
 ## Install with uv or pip
 
 ```bash
-uv tool install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.10
-pip install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.10
+uv tool install kveritas --find-links https://kveritas.org/wheels
+pip install kveritas --find-links https://kveritas.org/wheels
 ```
 
 Binary only, no Python package. `kveritas update` keeps it current.

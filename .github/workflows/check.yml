@@ -30,15 +30,15 @@ jobs:
         run: |
           cd bin
           python -c "import hashlib,sys; bad=[n for h,n in (l.split() for l in open('SHA256SUMS')) if hashlib.sha256(open(n,'rb').read()).hexdigest()!=h]; sys.exit('mismatch: %s' % bad if bad else 0)"
-      - name: binary is the latest release
+      - name: binary is the current build
         run: |
-          LATEST=$(grep -oE '^Latest: v[0-9.]+[0-9]' README.md | cut -d' ' -f2)
+          read VERSION COMMIT < bin/BUILD
           chmod +x "bin/${{ matrix.bin }}"
-          "bin/${{ matrix.bin }}" version | grep -F "kveritas $LATEST "
-      - name: pip install from the release
+          "bin/${{ matrix.bin }}" version | tee /dev/stderr | grep -F "kveritas $VERSION " | grep -F "commit $COMMIT)"
+      - name: pip install from kveritas.org/wheels
         run: |
-          LATEST=$(grep -oE '^Latest: v[0-9.]+[0-9]' README.md | cut -d' ' -f2)
+          read VERSION COMMIT < bin/BUILD
           python -m venv venv
           PY=venv/bin/python; [ -f venv/Scripts/python.exe ] && PY=venv/Scripts/python.exe
-          "$PY" -m pip install -q kveritas --find-links "https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/$LATEST"
-          "$PY" -c "import shutil,subprocess,sys,os; d=os.path.dirname(sys.executable); exe=shutil.which('kveritas', path=d); print(subprocess.run([exe,'version'],capture_output=True,text=True).stdout)" | grep -F "kveritas $LATEST "
+          "$PY" -m pip install -q --no-cache-dir "kveritas==$VERSION" --find-links https://kveritas.org/wheels
+          "$PY" -c "import shutil,subprocess,sys,os; exe=shutil.which('kveritas', path=os.path.dirname(sys.executable)); print(subprocess.run([exe,'version'],capture_output=True,text=True).stdout)" | grep -F "commit $COMMIT)"
