@@ -27,7 +27,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: checksums
-        run: cd bin && python -c "import hashlib,sys; bad=[n for h,n in (l.split() for l in open('SHA256SUMS')) if hashlib.sha256(open(n,'rb').read()).hexdigest()!=h]; sys.exit(f'mismatch: {bad}' if bad else 0)"
+        run: |
+          cd bin
+          python -c "import hashlib,sys; bad=[n for h,n in (l.split() for l in open('SHA256SUMS')) if hashlib.sha256(open(n,'rb').read()).hexdigest()!=h]; sys.exit('mismatch: %s' % bad if bad else 0)"
       - name: binary is the latest release
         run: |
           LATEST=$(grep -oE '^Latest: v[0-9.]+[0-9]' README.md | cut -d' ' -f2)
