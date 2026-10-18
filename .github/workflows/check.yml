@@ -32,12 +32,14 @@ jobs:
           python -c "import hashlib,sys; bad=[n for h,n in (l.split() for l in open('SHA256SUMS')) if hashlib.sha256(open(n,'rb').read()).hexdigest()!=h]; sys.exit('mismatch: %s' % bad if bad else 0)"
       - name: binary is the current build
         run: |
-          read VERSION COMMIT < bin/BUILD
+          read VERSION COMMIT < <(tr -d '\r' < bin/BUILD)
           chmod +x "bin/${{ matrix.bin }}"
-          "bin/${{ matrix.bin }}" version | tee /dev/stderr | grep -F "kveritas $VERSION " | grep -F "commit $COMMIT)"
+          out=$("bin/${{ matrix.bin }}" version)
+          echo "$out"
+          echo "$out" | grep -F "kveritas $VERSION " | grep -F "commit $COMMIT)"
       - name: pip install from kveritas.org/wheels
         run: |
-          read VERSION COMMIT < bin/BUILD
+          read VERSION COMMIT < <(tr -d '\r' < bin/BUILD)
           python -m venv venv
           PY=venv/bin/python; [ -f venv/Scripts/python.exe ] && PY=venv/Scripts/python.exe
           "$PY" -m pip install -q --no-cache-dir "kveritas==$VERSION" --find-links https://kveritas.org/wheels
