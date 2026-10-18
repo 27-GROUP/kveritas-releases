@@ -1,0 +1,42 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            bin: kveritas-linux-amd64
+          - os: macos-latest
+            bin: kveritas-darwin-arm64
+          - os: windows-latest
+            bin: kveritas-windows-amd64.exe
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: checksums
+        run: cd bin && python -c "import hashlib,sys; bad=[n for h,n in (l.split() for l in open('SHA256SUMS')) if hashlib.sha256(open(n,'rb').read()).hexdigest()!=h]; sys.exit(f'mismatch: {bad}' if bad else 0)"
+      - name: binary is the latest release
+        run: |
+          LATEST=$(grep -oE '^Latest: v[0-9.]+[0-9]' README.md | cut -d' ' -f2)
+          chmod +x "bin/${{ matrix.bin }}"
+          "bin/${{ matrix.bin }}" version | grep -F "kveritas $LATEST "
+      - name: pip install from the release
+        run: |
+          LATEST=$(grep -oE '^Latest: v[0-9.]+[0-9]' README.md | cut -d' ' -f2)
+          python -m venv venv
+          PY=venv/bin/python; [ -f venv/Scripts/python.exe ] && PY=venv/Scripts/python.exe
+          "$PY" -m pip install -q kveritas --find-links "https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/$LATEST"
+          "$PY" -c "import shutil,subprocess,sys,os; d=os.path.dirname(sys.executable); exe=shutil.which('kveritas', path=d); print(subprocess.run([exe,'version'],capture_output=True,text=True).stdout)" | grep -F "kveritas $LATEST "
