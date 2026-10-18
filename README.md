@@ -15,13 +15,13 @@ Pre-built binaries for the K-Veritas CLI and attestation server. Download the bi
 
 K-Veritas is the official implementation of [Computer Science Conferences Should Require Nonrepudiable Experimental Results](https://arxiv.org/abs/2605.08586) (Keita and Homan, NeurIPS 2026 Position Paper Track).
 
-Latest: v0.9.9. Results go to the file in `$KVERITAS_OUT` as short `KV` lines, from any language; `kveritas run` starts a session itself, `--seal` writes the report in one step, and `kveritas python train.py` works as a short form. Also installs with uv or pip.
+Latest: v0.9.10. Every report carries a signed ledger checkpoint, and verify checks the ledger still holds it and the latest one published at [KVERITAS-SCIENCE/ledger](https://github.com/KVERITAS-SCIENCE/ledger), so a ledger cut short is caught.
 
 ## Install with uv or pip
 
 ```bash
-uv tool install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.9
-pip install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.9
+uv tool install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.10
+pip install kveritas --find-links https://github.com/27-GROUP/kveritas-releases/releases/expanded_assets/v0.9.10
 ```
 
 Binary only, no Python package. `kveritas update` keeps it current.
