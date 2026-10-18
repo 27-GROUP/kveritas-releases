@@ -106,12 +106,11 @@ kveritas run --seal -- python train.py
 kveritas verify report.pdf
 ```
 
-Results, one line each, written to the file in `$KVERITAS_OUT`:
+Results: print one line each, any language.
 
 ```python
-kv = open(os.environ.get("KVERITAS_OUT", os.devnull), "a", buffering=1)
-print(f"KV val_acc={acc:.4f} step={epoch}", file=kv)
-print(f"KV claim test_acc={test_acc:.4f}", file=kv)
+print(f"KV val_acc={acc:.4f} step={epoch}")
+print(f"KV claim test_acc={test_acc:.4f}")
 ```
 
 Self-hosted server:
