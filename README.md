@@ -20,8 +20,8 @@ The files in `bin/` are always the latest build. `kveritas version` names the bu
 ## Install with uv or pip
 
 ```bash
-uv tool install kveritas --find-links https://kveritas.org/wheels
-pip install kveritas --find-links https://kveritas.org/wheels
+uv tool install kveritas --find-links https://27-group.github.io/kveritas-releases/wheels/
+pip install kveritas --find-links https://27-group.github.io/kveritas-releases/wheels/
 ```
 
 Binary only, no Python package. `kveritas update` keeps it current.
