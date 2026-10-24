@@ -10,6 +10,11 @@
 
 # K-Veritas CLI Releases
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/demo-dark.svg">
+  <img src="assets/demo-light.svg" alt="K-Veritas terminal demo: run, checkpoint, edit, status, branch, restore, log, seal, verify" width="100%">
+</picture>
+
 Prebuilt binaries of the K-Veritas CLI and attestation server, always the latest build. `kveritas version` names the build and its commit; `bin/BUILD` records which is current.
 
 K-Veritas binds a result to the code, hardware and time that produced it, in a signed PDF anyone can verify. It proves these numbers came from this code, at this time, unchanged. Not that the experiment is correct.
