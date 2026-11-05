@@ -76,7 +76,7 @@ Verify in the browser: [kveritas.org/verify](https://kveritas.org/verify). Publi
 
 ## License
 
-**AGPL-3.0**, CLI and attestation server. Full text in the [kveritas-go](https://github.com/27-GROUP/kveritas-go) repository.
+**Apache-2.0** ([LICENSE](LICENSE)), CLI binaries and wheels. The attestation server binaries (`kveritas-server-*`) are **AGPL-3.0**, source and full text in [kveritas-go](https://github.com/27-GROUP/kveritas-go/tree/main/server).
 
 "K-Veritas" is a trademark and cannot be used in any way that implies official certification.
 
