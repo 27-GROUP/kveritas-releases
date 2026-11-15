@@ -6,7 +6,7 @@
 </p>
 
 > [!NOTE]
-> If you are interested in testing this and giving feedback, contributing, or just using it, you are welcome, and we hope it helps you. However, if you consider yourself the "ultimate genius" and criticize without trying it first, we are sorry: this project will not benefit you or from you.
+> If you are interested in testing this and giving feedback, contributing, or just using it, you are welcome, and we hope it helps you. However, if you consider yourself the "ultimate genius" and criticize without trying it first, we are sorry, this project will not benefit you or from you.
 
 # K-Veritas CLI Releases
 
